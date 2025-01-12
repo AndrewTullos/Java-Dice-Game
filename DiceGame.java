@@ -6,6 +6,9 @@ public class DiceGame {
         DiceGame game = new DiceGame();
         game.start();
     }
+    private static int rollDice() {
+        return (int) (Math.random() * 6) + 1;
+    }
 
     private void start() {
         Scanner console = new Scanner(System.in);
@@ -17,8 +20,8 @@ public class DiceGame {
             String input = console.nextLine().trim().toLowerCase();
 
             if (input.equals("y")) {
-                int firstDice = random.nextInt(6) + 1;
-                int secondDice = random.nextInt(6) + 1;
+                int firstDice = rollDice();
+                int secondDice = rollDice();
                 System.out.println("Dice roll: (" + firstDice + ", " + secondDice + ")");
             } else if (input.equals("n")) {
                 System.out.println("Thanks for playing! Goodbye!");
@@ -27,7 +30,6 @@ public class DiceGame {
                 System.out.println("Invalid input. Please enter 'y' or 'n'.");
             }
         }
-
-        console.close();
     }
+
 }
